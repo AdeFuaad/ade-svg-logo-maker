@@ -8,7 +8,7 @@ const questions = [
     {
         type: 'input',
         message: 'Input text not greater than 3 characters',
-        name: 'text',
+        name: 'name',
         validate: function(value) {
             if(value.length > 3){
                 return "Please input characters less than 3"
@@ -21,7 +21,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please Input the colour name or hex value of the text',
-        name: 'textColor',
+        name: 'textColour',
     },
     {
         type: 'list',
@@ -37,7 +37,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please Input the colour name or hex value of the shape',
-        name: 'shapeColor'
+        name: 'shapeColour'
     }
 ]
 
