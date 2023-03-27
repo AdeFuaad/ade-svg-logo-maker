@@ -1,55 +1,42 @@
 const inquirer = require('inquirer');
-const generateSVG = require('./utils/generateSVG')
-const fs = require('fs')
-
-//questions array. For the first question I limit the number of characters
-//the user can enter to 3
-const questions = [
-    {
-        type: 'input',
-        message: 'Input text not greater than 3 characters',
-        name: 'name',
-        validate: function(value) {
-            if(value.length > 3){
-                return "Please input characters less than 3"
-            }
-            else{
-                return true;
-            }
-        }
-    },
-    {
-        type: 'input',
-        message: 'Please Input the colour name or hex value of the text',
-        name: 'textColour',
-    },
-    {
-        type: 'list',
-        message: 'Please select the shape you want your logo to be',
-        choices: 
-        [
-            'Triangle', 
-            'Square', 
-            'Circle'
-        ],
-        name: 'shape',
-    },
-    {
-        type: 'input',
-        message: 'Please Input the colour name or hex value of the shape',
-        name: 'shapeColour'
-    }
-]
+const fs = require('fs');
+const { generateSvg } = require('./libs/generateSvg');
+const { createShape } = require('./libs/createShape');
 
 inquirer
-    .prompt(questions).then((data) => {
-        fs.writeFile('./examples/logo.svg',generateSVG(data), (err) => {
-            if(err){
-                console.log(err);
-            }
-            else{
-                console.log('Generated logo.svg')
+  .prompt([
+    {
+      type: 'input',
+      name: 'logoName',
+      message: 'Input text not greater than 3 characters',
+    },
+    {
+      type: 'input',
+      name: 'textColour',
+      message: `Input the colour name or hex value of the text`,
+    },
+    {
+      type: 'list',
+      name: 'logoShape',
+      message: `Select the shape of choice`,
+      choices: ['triangle', 'circle', 'square'],
+    },
+    {
+      type: 'input',
+      name: 'logoColour',
+      message: `Input the colour name or hex value of the shape`,
+    },
+  ])
+  .then((data) => {
+    const svgPath = './dist/logo.svg';
+    const finalLogo = generateSVG(data);
 
-            }
-           })
-    })
+    //Generate the svg logo here.
+    fs.writeFile(svgPath, finalLogo, (err) =>
+      err ? console.error(err) : console.log('Generated logo.svg')
+    );
+  })
+  .catch((err) => console.error(err));
+
+
+

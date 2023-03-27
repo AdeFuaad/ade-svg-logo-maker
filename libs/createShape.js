@@ -6,19 +6,19 @@ const createShape = (data) => {
   const { logoShape } = data;
   switch (logoShape) {
     case 'circle':
-      const makeCircle = new Circle(data);
-      return makeCircle;
+      const createCircle = new Circle(data);
+      return createCircle;
       break;
 
     case 'triangle':
-      const makeTriangle = new Triangle(data);
-      return makeTriangle;
+      const createTriangle = new Triangle(data);
+      return createTriangle;
       break;
 
     case 'square':
       console.log(data);
-      const makeSquare = new Square(data);
-      return makeSquare;
+      const createSquare = new Square(data);
+      return createSquare;
       break;
 
     default:
