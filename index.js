@@ -48,7 +48,7 @@ inquirer
                 console.log(err);
             }
             else{
-                console.log('logo.svg generated')
+                console.log('Generated logo.svg')
 
             }
            })
