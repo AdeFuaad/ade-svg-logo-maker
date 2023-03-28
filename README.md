@@ -1,4 +1,4 @@
-# svg-logo-maker
+# ade-svg-logo-maker
 ![License Badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
 ## User Story
@@ -38,13 +38,11 @@ As a freelance web developer, I want to generate a simple logo for my projects, 
 * These tests must be passed in order for the logo.svg file to be generated.
 
 ## Questions
-* Please contact me via my [Github Username](https://github.com/johnxlai)
+* [Github Username](https://github.com/adefuaad)
 
-* You can reach me with additional questions <a href="mailto:lai.john.py@gmail.com">lai.john.py@gmail.com</a>
+* <a href="mailto:adesholafuaad@gmail.com">adesholafuaad@gmail.com</a>
 
 
 ## Repo
-https://github.com/johnxlai/svg-logo-maker
-## WalkThrough Video
-https://drive.google.com/file/d/1zKDm3_RNRF0xhl7HIcSfiNnQ_BCQhymY/view
+https://github.com/adefuaad/svg-logo-maker
 
