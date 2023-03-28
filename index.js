@@ -1,42 +1,39 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { generateSvg } = require('./libs/generateSvg');
-const { createShape } = require('./libs/createShape');
+const { generateSvg } = require('./lib/generateSvg');
+const { createShape } = require('./lib/createShape');
 
 inquirer
   .prompt([
     {
       type: 'input',
       name: 'logoName',
-      message: 'Input text not greater than 3 characters',
+      message: 'Input text that must not be more than 3 letters',
     },
     {
       type: 'input',
       name: 'textColour',
-      message: `Input the colour name or hex value of the text`,
-    },
-    {
-      type: 'list',
-      name: 'logoShape',
-      message: `Select the shape of choice`,
-      choices: ['triangle', 'circle', 'square'],
+      message: `Input text colour keyword or a hexadecimal number for the logo's color`,
     },
     {
       type: 'input',
       name: 'logoColour',
-      message: `Input the colour name or hex value of the shape`,
+      message: `Input a colour keyword or a hexadecimal number for the logo's background colour`,
+    },
+    {
+      type: 'list',
+      name: 'logoShape',
+      message: `Select a logo shape`,
+      choices: ['triangle', 'circle', 'square'],
     },
   ])
   .then((data) => {
     const svgPath = './dist/logo.svg';
-    const finalLogo = generateSVG(data);
+    const finalLogo = createShape(data);
 
     //Generate the svg logo here.
-    fs.writeFile(svgPath, finalLogo, (err) =>
+    fs.writeFile(svgPath, generateSvg(finalLogo), (err) =>
       err ? console.error(err) : console.log('Generated logo.svg')
     );
   })
   .catch((err) => console.error(err));
-
-
-

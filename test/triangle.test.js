@@ -4,10 +4,10 @@ describe('Triangle', () => {
   describe('Render Method', () => {
     it('should return triangle string', () => {
       const triangle = new Triangle({
-        logoName: 'Ade',
-        textColour: 'green',
-        shape: 'triangle',
-        shapeColour: '#FFF',
+        logoName: 'Mel',
+        textColour: 'purple',
+        bgColour: '#000',
+        logoShape: 'triangle',
       });
       expect(triangle.render()).toBe(
         `<polygon points="100 0, 0 ,0 50, 100" fill="#000" />`
